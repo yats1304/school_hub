@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import AddSchool from "./components/AddSchool";
 import Navbar from "./components/Navbar";
 import ShowSchools from "./components/ShowSchool";
@@ -29,18 +31,20 @@ function App() {
                   institution!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-md justify-center">
-                  <a
-                    href="/show"
-                    className="bg-blue-600 text-white px-5 py-2 rounded-lg text-lg font-semibold shadow hover:bg-blue-700 transition w-full text-center"
-                  >
-                    View Schools
-                  </a>
-                  <a
-                    href="/add"
-                    className="bg-purple-500 text-white px-5 py-2 rounded-lg text-lg font-semibold shadow hover:bg-purple-700 transition w-full text-center"
-                  >
-                    Add School
-                  </a>
+                  <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-md justify-center">
+                    <Link
+                      to="/show"
+                      className="bg-blue-600 text-white px-5 py-2 rounded-lg text-lg font-semibold shadow hover:bg-blue-700 transition w-full text-center"
+                    >
+                      View Schools
+                    </Link>
+                    <Link
+                      to="/add"
+                      className="bg-purple-500 text-white px-5 py-2 rounded-lg text-lg font-semibold shadow hover:bg-purple-700 transition w-full text-center"
+                    >
+                      Add School
+                    </Link>
+                  </div>
                 </div>
               </div>
             }
