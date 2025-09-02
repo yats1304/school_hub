@@ -1,16 +1,16 @@
 import {
   Controller,
-  Get,
   Post,
-  Body,
   UploadedFile,
   UseInterceptors,
+  Body,
+  Get,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
-import { SchoolsService } from './schools.service';
-import { School } from './school.entity';
 import { extname } from 'path';
+import { School } from './school.entity';
+import { SchoolsService } from './schools.service';
 
 @Controller('schools')
 export class SchoolsController {
@@ -25,7 +25,7 @@ export class SchoolsController {
   @UseInterceptors(
     FileInterceptor('image', {
       storage: diskStorage({
-        destination: './uploads', // Folder to save uploaded files
+        destination: './uploads',
         filename: (req, file, cb) => {
           const uniqueSuffix =
             Date.now() + '-' + Math.round(Math.random() * 1e9);
@@ -33,13 +33,18 @@ export class SchoolsController {
           cb(null, `${uniqueSuffix}${ext}`);
         },
       }),
+      fileFilter: (req, file, cb) => {
+        if (!file.mimetype.match(/\/(jpg|jpeg|png|gif)$/)) {
+          return cb(new Error('Only image files are allowed!'), false);
+        }
+        cb(null, true);
+      },
     }),
   )
   async addSchool(
     @UploadedFile() file: Express.Multer.File,
     @Body() body: Partial<School>,
   ) {
-    // Add the uploaded file's filename or path to the school data
     if (file) {
       body.image_url = file.filename;
     }

@@ -34,7 +34,11 @@ export default function ShowSchools() {
             className="bg-white/90 backdrop-blur-md shadow-lg rounded-2xl overflow-hidden transform hover:scale-[1.02] hover:shadow-2xl transition duration-300"
           >
             <img
-              src={school.image_url || "https://via.placeholder.com/300x200"}
+              src={
+                school.image_url
+                  ? `http://localhost:3000/uploads/${school.image_url}`
+                  : "https://via.placeholder.com/300x200"
+              }
               alt={school.name}
               className="w-full h-40 object-cover"
             />
