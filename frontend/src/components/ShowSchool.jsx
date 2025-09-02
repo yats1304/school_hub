@@ -6,7 +6,7 @@ export default function ShowSchools() {
   const [selectedSchool, setSelectedSchool] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/schools")
+    fetch("https://school-hub-pwt7.onrender.com/schools")
       .then((res) => res.json())
       .then((data) => {
         setSchools(data);
@@ -36,7 +36,7 @@ export default function ShowSchools() {
           <img
             src={
               selectedSchool.image_url
-                ? `http://localhost:3000/uploads/${selectedSchool.image_url}`
+                ? `https://school-hub-pwt7.onrender.com/uploads/${selectedSchool.image_url}`
                 : "https://via.placeholder.com/600x400"
             }
             alt={selectedSchool.name}
@@ -80,7 +80,7 @@ export default function ShowSchools() {
             <img
               src={
                 school.image_url
-                  ? `http://localhost:3000/uploads/${school.image_url}`
+                  ? `https://school-hub-pwt7.onrender.com/uploads/${school.image_url}`
                   : "https://via.placeholder.com/300x200"
               }
               alt={school.name}

@@ -26,10 +26,13 @@ const AddSchool = () => {
 
       formData.append("image", data.image[0]);
 
-      const response = await fetch("http://localhost:3000/schools", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://school-hub-pwt7.onrender.com/schools",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to add school");
 
