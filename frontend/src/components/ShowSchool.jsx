@@ -25,14 +25,14 @@ export default function ShowSchools() {
   // Detail view for a selected school
   if (selectedSchool) {
     return (
-      <div className="min-h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-8">
+      <div className="h-[92vh] bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-8">
         <button
           onClick={() => setSelectedSchool(null)}
           className="mb-4 text-blue-600 hover:underline"
         >
           &larr; Back to Schools List
         </button>
-        <div className="bg-white/90 backdrop-blur-md shadow-lg rounded-2xl p-8 max-w-xl mx-auto">
+        <div className="bg-white/90 backdrop-blur-md shadow-md rounded-2xl p-8 max-w-lg mx-auto">
           <img
             src={
               selectedSchool.image_url
