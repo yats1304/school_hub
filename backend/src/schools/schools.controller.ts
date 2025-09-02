@@ -11,6 +11,7 @@ import { diskStorage } from 'multer';
 import { extname } from 'path';
 import { School } from './school.entity';
 import { SchoolsService } from './schools.service';
+import { CreateSchoolDto } from './create-school.dto';
 
 @Controller('schools')
 export class SchoolsController {
@@ -41,9 +42,10 @@ export class SchoolsController {
       },
     }),
   )
+  @Post()
   async addSchool(
     @UploadedFile() file: Express.Multer.File,
-    @Body() body: Partial<School>,
+    @Body() body: CreateSchoolDto,
   ) {
     if (file) {
       body.image_url = file.filename;

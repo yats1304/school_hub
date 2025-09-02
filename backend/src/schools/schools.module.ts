@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SchoolsController } from './schools.controller';
-import { SchoolsService } from './schools.service';
 import { School } from './school.entity';
+import { SchoolsService } from './schools.service';
+import { SchoolsController } from './schools.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([School])],
-  controllers: [SchoolsController],
   providers: [SchoolsService],
+  controllers: [SchoolsController],
 })
-export class SchoolsModule {} // Note: class name ends with `Module`
+export class SchoolsModule {}

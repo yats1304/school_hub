@@ -2,20 +2,26 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { School } from './school.entity';
+import { CreateSchoolDto } from './create-school.dto';
 
 @Injectable()
 export class SchoolsService {
   constructor(
     @InjectRepository(School)
-    private schoolRepo: Repository<School>,
+    private schoolRepository: Repository<School>,
   ) {}
 
   findAll() {
-    return this.schoolRepo.find();
+    return this.schoolRepository.find();
   }
 
-  create(data: Partial<School>) {
-    const school = this.schoolRepo.create(data);
-    return this.schoolRepo.save(school);
+  findOne(id: number) {
+    return this.schoolRepository.findOne({ where: { id } });
   }
+
+  create(schoolData: CreateSchoolDto) {
+    return this.schoolRepository.save(schoolData);
+  }
+
+  // Add update, delete as needed
 }

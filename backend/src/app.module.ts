@@ -13,13 +13,12 @@ import { AppController } from './app.controller';
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'yats',
-      database: 'school_hub',
+      url: process.env.DATABASE_URL, // corrected here
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
     }),
     SchoolsModule,
   ],
