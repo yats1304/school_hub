@@ -6,7 +6,7 @@ export default function ShowSchools() {
   const [selectedSchool, setSelectedSchool] = useState(null);
 
   useEffect(() => {
-    fetch("https://school-hub-pwt7.onrender.com/schools")
+    fetch("https://schoolhub-production.up.railway.app/schools")
       .then((res) => res.json())
       .then((data) => {
         setSchools(data);
@@ -25,7 +25,7 @@ export default function ShowSchools() {
   // Detail view for a selected school
   if (selectedSchool) {
     return (
-      <div className="h-[92vh] bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-8">
+      <div className="min-h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-8">
         <button
           onClick={() => setSelectedSchool(null)}
           className="mb-4 text-blue-600 hover:underline"
@@ -36,7 +36,7 @@ export default function ShowSchools() {
           <img
             src={
               selectedSchool.image_url
-                ? `https://school-hub-pwt7.onrender.com/uploads/${selectedSchool.image_url}`
+                ? `https://schoolhub-production.up.railway.app/uploads/${selectedSchool.image_url}`
                 : "https://via.placeholder.com/600x400"
             }
             alt={selectedSchool.name}
@@ -80,7 +80,7 @@ export default function ShowSchools() {
             <img
               src={
                 school.image_url
-                  ? `https://school-hub-pwt7.onrender.com/uploads/${school.image_url}`
+                  ? `https://schoolhub-production.up.railway.app/uploads/${school.image_url}`
                   : "https://via.placeholder.com/300x200"
               }
               alt={school.name}

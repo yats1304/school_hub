@@ -27,7 +27,7 @@ const AddSchool = () => {
       formData.append("image", data.image[0]);
 
       const response = await fetch(
-        "https://school-hub-pwt7.onrender.com/schools",
+        "https://schoolhub-production.up.railway.app/schools",
         {
           method: "POST",
           body: formData,
@@ -37,8 +37,8 @@ const AddSchool = () => {
       if (!response.ok) throw new Error("Failed to add school");
 
       toast.success("School added successfully!");
-      reset(); // Reset form fields after success
-      setImagePreview(null); // Clear image preview
+      reset();
+      setImagePreview(null);
     } catch (error) {
       console.error(error);
       toast.error("Error adding school");
