@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { SchoolsModule } from './schools/schools.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -22,5 +23,6 @@ import { SchoolsModule } from './schools/schools.module';
     }),
     SchoolsModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
