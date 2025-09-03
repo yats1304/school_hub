@@ -67,7 +67,7 @@ export default function ShowSchools() {
 
   // Default grid view listing all schools
   return (
-    <div className="h-[92vh] bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-8">
+    <div className="min-h-screen overflow-auto bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-8">
       <h1 className="text-3xl font-extrabold text-center mb-10 text-gray-800">
         Schools Directory
       </h1>

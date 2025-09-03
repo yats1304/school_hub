@@ -59,7 +59,7 @@ const AddSchool = () => {
       {/* ToastContainer must be rendered once anywhere in your app */}
       <ToastContainer className="mt-12" />
 
-      <div className="h-[92vh] flex items-center justify-center bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4">
+      <div className="h-[86vh] flex items-center justify-center bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4">
         <div className="bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-2xl w-full max-w-md">
           <h1 className="text-2xl font-extrabold text-center mb-2 text-gray-800">
             Add New School
@@ -188,14 +188,6 @@ const AddSchool = () => {
               />
               {errors.image && (
                 <p className="text-red-600 text-xs">{errors.image.message}</p>
-              )}
-
-              {imagePreview && (
-                <img
-                  src={imagePreview}
-                  alt="Preview"
-                  className="w-32 h-32 object-cover rounded-lg mt-2 shadow-md"
-                />
               )}
             </div>
 
