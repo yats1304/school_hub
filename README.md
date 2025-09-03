@@ -34,10 +34,10 @@ SchoolHub is a **full-stack web application** that allows users to browse, add, 
 ---
 
 ## 🏗️ Project Structure
-```bash
-school_hub/
-│── frontend/ # React app (UI)
-│── backend/ # NestJS app (API + DB integration)
+   ```bash
+   school_hub/
+    │── frontend/ # React app (UI)
+    │── backend/ # NestJS app (API + DB integration)
 
 ---
 
